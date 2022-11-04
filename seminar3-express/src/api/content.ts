@@ -13,7 +13,7 @@ router.get("/:contentId", (req: Request, res: Response) => {
   return res.status(200).json({
     status: 200,
     message: "컨텐츠 조회 성공",
-    data: data[contentId],
+    data: contentData,
   });
 });
 
