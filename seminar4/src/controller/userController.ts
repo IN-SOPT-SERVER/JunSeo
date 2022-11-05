@@ -11,7 +11,7 @@ const createUser = async (req: Request, res: Response) => {
   const data = await userService.createUser(userName, email, age);
 
   if (!data) {
-    return res.status(404).json({ status: 404, message: "user create fail" });
+    return res.status(400).json({ status: 400, message: "user create fail" });
   }
   return res.status(200).json({ status: 200, message: "user create success", data });
 };
