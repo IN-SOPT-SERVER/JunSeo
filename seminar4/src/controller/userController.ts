@@ -32,7 +32,11 @@ const getUserById = async (req: Request, res: Response) => {
 };
 
 //~ 유저 전체 조회
-const getAllUser = async (req: Request, res: Response) => {};
+const getAllUser = async (req: Request, res: Response) => {
+  const data = await userService.getAllUser();
+
+  return res.status(200).json({ status: 200, message: "get all users success", data });
+};
 
 //~ 유저 정보 업데이트
 const updateUser = async (req: Request, res: Response) => {};

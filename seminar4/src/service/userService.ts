@@ -28,7 +28,11 @@ const getUserById = async (userId: number) => {
 };
 
 //~ 유저 전체 조회
-const getAllUser = async () => {};
+const getAllUser = async () => {
+  const data = await prisma.user.findMany();
+
+  return data;
+};
 
 //~ 유저 정보 업데이트
 const updateUser = async () => {};
