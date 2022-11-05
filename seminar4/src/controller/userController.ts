@@ -50,7 +50,12 @@ const updateUser = async (req: Request, res: Response) => {
 };
 
 //~ 유저 삭제
-const deleteUser = async (req: Request, res: Response) => {};
+const deleteUser = async (req: Request, res: Response) => {
+  const { userId } = req.params;
+
+  await userService.deleteUser(+userId);
+  return res.status(200).json({ status: 200, message: "user delete success" });
+};
 
 const userController = {
   getUserById,

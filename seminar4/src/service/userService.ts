@@ -49,7 +49,13 @@ const updateUser = async (userId: number, name: String) => {
 };
 
 //~ 유저 삭제
-const deleteUser = async () => {};
+const deleteUser = async (userId: number) => {
+  await prisma.user.delete({
+    where: {
+      id: userId,
+    },
+  });
+};
 
 const userService = {
   getUserById,
