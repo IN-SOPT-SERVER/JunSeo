@@ -40,7 +40,14 @@ const getAllUser = async (req: Request, res: Response) => {
 };
 
 //~ 유저 정보 업데이트
-const updateUser = async (req: Request, res: Response) => {};
+const updateUser = async (req: Request, res: Response) => {
+  const { name } = req.body;
+  const { userId } = req.params;
+  if (!name) return res.status(400).json({ status: 400, message: "user update fail" });
+
+  const updatedUser = await userService.updateUser(+userId, name);
+  return res.status(200).json({ status: 200, message: "user update success", updatedUser });
+};
 
 //~ 유저 삭제
 const deleteUser = async (req: Request, res: Response) => {};

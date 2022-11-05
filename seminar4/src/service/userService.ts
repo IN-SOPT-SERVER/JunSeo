@@ -35,7 +35,18 @@ const getAllUser = async () => {
 };
 
 //~ 유저 정보 업데이트
-const updateUser = async () => {};
+const updateUser = async (userId: number, name: String) => {
+  const data = await prisma.user.update({
+    where: {
+      id: userId,
+    },
+    data: {
+      userName: name,
+    },
+  });
+
+  return data;
+};
 
 //~ 유저 삭제
 const deleteUser = async () => {};
