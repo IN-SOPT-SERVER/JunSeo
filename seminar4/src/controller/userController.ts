@@ -8,8 +8,12 @@ const createUser = async (req: Request, res: Response) => {
   //? 이렇게 코드를 작성할 수 있음  => 비구조화할당
 
   const { userName, email, age } = req.body;
-  const data = await userService.createUser(userName, email, age);
+  //? 필요한 데이터가 오지 않았을 때 처리가 필요함
+  if (!userName || !email || !age) {
+    return res.status(400).json({ status: 400, message: "user create fail" });
+  }
 
+  const data = await userService.createUser(userName, email, age);
   if (!data) {
     return res.status(400).json({ status: 400, message: "user create fail" });
   }
