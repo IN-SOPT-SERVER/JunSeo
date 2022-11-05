@@ -23,6 +23,7 @@ const createUser = async (req: Request, res: Response) => {
 const getUserById = async (req: Request, res: Response) => {
   const { userId } = req.params;
 
+  //? userId 앞에 +붙인 이유? string으로 들어온 숫자를 number로 형변환 Number() 사용을 피할 수 있는 꼼수
   const data = await userService.getUserById(+userId);
 
   if (!data) {
