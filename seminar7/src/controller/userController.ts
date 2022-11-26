@@ -84,6 +84,19 @@ const getAllUser = async (req: Request, res: Response) => {
   return res.status(sc.OK).send(success(sc.OK, rm.READ_ALL_USERS_SUCCESS, data));
 };
 
+//! GET ~/api/user/search?keyword=준서
+//~ 유저 이름으로 검색하기
+const searchUserByName = async (req: Request, res: Response) => {
+  const { keyword } = req.query;
+
+  const data = await userService.searchUserByName(keyword as string);
+
+  if (!data) {
+    return res.status(sc.BAD_REQUEST).send(fail(sc.BAD_REQUEST, rm.SEARCH_USER_FAIL));
+  }
+  return res.status(sc.OK).send(success(sc.OK, rm.SEARCH_USER_SUCCESS, data));
+}
+
 //~ 유저 정보 업데이트
 const updateUser = async (req: Request, res: Response) => {
   const { name } = req.body;
@@ -109,6 +122,7 @@ const userController = {
   getAllUser,
   updateUser,
   deleteUser,
+  searchUserByName,
 };
 
 export default userController;

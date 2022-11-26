@@ -63,6 +63,19 @@ const getAllUser = async () => {
   return data;
 };
 
+//~ 유저 이름으로 검색하기
+const searchUserByName = async (keyword: string) => {
+  const data = await prisma.user.findMany({
+    where: {
+      userName: {
+        contains: keyword,
+      },
+    },
+  });
+
+  return data;
+};
+
 //~ 유저 정보 업데이트
 const updateUser = async (userId: number, name: string) => {
   const data = await prisma.user.update({
@@ -93,6 +106,7 @@ const userService = {
   updateUser,
   deleteUser,
   createUser,
+  searchUserByName,
 };
 
 export default userService;
