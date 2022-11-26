@@ -87,9 +87,9 @@ const getAllUser = async (req: Request, res: Response) => {
 //! GET ~/api/user/search?keyword=준서
 //~ 유저 이름으로 검색하기
 const searchUserByName = async (req: Request, res: Response) => {
-  const { keyword } = req.query;
+  const { keyword, option } = req.query;
 
-  const data = await userService.searchUserByName(keyword as string);
+  const data = await userService.searchUserByName(keyword as string, option as string);
 
   if (!data) {
     return res.status(sc.BAD_REQUEST).send(fail(sc.BAD_REQUEST, rm.SEARCH_USER_FAIL));

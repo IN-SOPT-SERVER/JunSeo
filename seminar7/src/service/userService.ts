@@ -64,7 +64,51 @@ const getAllUser = async () => {
 };
 
 //~ 유저 이름으로 검색하기
-const searchUserByName = async (keyword: string) => {
+const searchUserByName = async (keyword: string, option: string) => {
+  //? 유저 최신 순서
+  if (option === "desc") {
+    const data = await prisma.user.findMany({
+      where: {
+        userName: {
+          contains: keyword,
+        },
+      },
+      orderBy: {
+        createdAt: 'desc',
+      }
+    });
+    return data;
+  }
+  //? 유저 오래된 순서
+  else if (option === "asc") {
+    const data = await prisma.user.findMany({
+      where: {
+        userName: {
+          contains: keyword,
+        },
+      },
+      orderBy: {
+        createdAt: 'asc',
+      }
+    });
+    return data;
+  }
+
+  //? 이름을 오름차순으로
+  if (option === "nameDesc") {
+    const data = await prisma.user.findMany({
+      where: {
+        userName: {
+          contains: keyword,
+        },
+      },
+      orderBy: {
+        userName: 'desc'
+      },
+    });
+    return data;
+  }
+
   const data = await prisma.user.findMany({
     where: {
       userName: {

@@ -6,8 +6,10 @@ import { body } from "express-validator";
 const router: Router = Router();
 
 //~ 유저 이름으로 검색하기
-//! GET api/user/search?keyword={키워드}
+//~ 유저 검색 필터링 걸기
+//! GET api/user/search?keyword={키워드}&option={옵션}}
 router.get("/search", userController.searchUserByName);
+
 router.get("/:userId", auth, userController.getUserById);
 
 // 유저 생성
