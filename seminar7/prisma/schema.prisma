@@ -14,3 +14,11 @@ model User {
   email    String @db.VarChar(400)
   password String @db.VarChar(400)
 }
+
+model Image {
+  id    Int     @id @unique @default(autoincrement())
+  image String? @db.VarChar(800)
+
+  createdAt        DateTime           @default(now())
+  updatedAt        DateTime           @updatedAt
+}
