@@ -15,4 +15,19 @@ const getRateOfContent = async (contentId: number) => {
     return data;
 }
 
-export default { getRateOfContent };
+const postRate = async (contentId: number, rate: string) => {
+
+    const data = await prisma.rate.create({
+        data: {
+            contentId: contentId,
+            rate: rate,
+        },
+    });
+
+    return data;
+}
+
+export default {
+    getRateOfContent,
+    postRate,
+};

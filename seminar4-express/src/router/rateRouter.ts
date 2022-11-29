@@ -7,4 +7,8 @@ const router: Router = Router();
 //! GET api/rate/:contentId
 router.get("/:contentId", rateController.getRateOfContent);
 
+//~ 평가 등록하기
+//! POST api/rate/:contentId
+router.post("/:contentId", rateController.postRate);
+
 export default router;
