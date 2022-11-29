@@ -78,8 +78,12 @@ const getUserById = async (req: Request, res: Response) => {
 };
 
 //~ 유저 전체 조회
+//~ + 페이지네이션
 const getAllUser = async (req: Request, res: Response) => {
-  const data = await userService.getAllUser();
+  const { page, limit } = req.query;
+  //? page: 몇 페이지인지
+  //? limit: 한 페이지당 데이터 몇 개 줄 것인지
+  const data = await userService.getAllUser(Number(page), Number(limit));
 
   return res.status(sc.OK).send(success(sc.OK, rm.READ_ALL_USERS_SUCCESS, data));
 };

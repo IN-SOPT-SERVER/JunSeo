@@ -57,8 +57,13 @@ const getUserById = async (userId: number) => {
 };
 
 //~ 유저 전체 조회
-const getAllUser = async () => {
-  const data = await prisma.user.findMany();
+const getAllUser = async (page: number, limit: number) => {
+  //? skip만큼 건너 뛴 상태에서 take만큼의 데이터를 제공하겠다는 의미
+  console.log(page, limit);
+  const data = await prisma.user.findMany({
+    skip: (page - 1) * limit,
+    take: limit,
+  });
 
   return data;
 };
