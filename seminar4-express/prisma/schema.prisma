@@ -1,0 +1,23 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Content {
+  id    Int     @id @default(autoincrement())
+  title String? @db.VarChar(20)
+  Rate  Rate[]
+}
+
+model Rate {
+  id        Int     @id @default(autoincrement())
+  bad       Int?    @default(0)
+  good      Int?    @default(0)
+  super     Int?    @default(0)
+  contentId Int
+  Content   Content @relation(fields: [contentId], references: [id], onDelete: Cascade, map: "rate_content_id_fk")
+}
