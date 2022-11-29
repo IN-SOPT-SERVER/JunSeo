@@ -27,7 +27,18 @@ const postRate = async (contentId: number, rate: string) => {
     return data;
 }
 
+const deleteRate = async (contentId: number) => {
+    const result = await prisma.rate.delete({
+        where: {
+            contentId: contentId
+        }
+    });
+
+    return result;
+}
+
 export default {
     getRateOfContent,
     postRate,
+    deleteRate,
 };
