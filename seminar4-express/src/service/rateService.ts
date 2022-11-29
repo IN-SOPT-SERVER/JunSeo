@@ -37,8 +37,23 @@ const deleteRate = async (contentId: number) => {
     return result;
 }
 
+const patchRate = async (contentId: number, rate: string) => {
+    const updatedRate = await prisma.rate.update({
+        where: {
+            contentId: contentId,
+        },
+        data: {
+            contentId: contentId,
+            rate: rate,
+        },
+    });
+
+    return updatedRate;
+}
+
 export default {
     getRateOfContent,
     postRate,
     deleteRate,
+    patchRate,
 };

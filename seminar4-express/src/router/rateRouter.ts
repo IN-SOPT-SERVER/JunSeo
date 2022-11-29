@@ -15,4 +15,8 @@ router.post("/:contentId", rateController.postRate);
 //! POST api/rate/:contentId
 router.delete("/:contentId", rateController.deleteRate);
 
+//~ 평가 수저하기
+//! PATCH api/rate/:contentId
+router.patch("/:contentId", rateController.patchRate);
+
 export default router;

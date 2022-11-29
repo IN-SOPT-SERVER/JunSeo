@@ -34,18 +34,33 @@ const deleteRate = async (req: Request, res: Response) => {
 
     } catch (error) {
         if (error instanceof Prisma.PrismaClientKnownRequestError)
-            //? 삭제할 데이터가 존재하지 않을 때 발생하는 에러 코드
+            //? 데이터가 존재하지 않을 때 발생하는 에러 코드
             if (error.code === "P2025")
                 return res.status(404).json({ status: 404, message: "삭제할 평가가 존재하지 않습니다" });
-            else
-                return res.status(500).json({ status: 500, message: error.message });
     }
 
     return res.status(500).json({ status: 500, message: "평가 삭제 실패" });
+}
+
+const patchRate = async (req: Request, res: Response) => {
+    const { contentId } = req.params;
+    const rate: string = req.body.rate;
+
+    try {
+        const data = await rateService.patchRate(+contentId, rate);
+        if (data) return res.status(200).json({ status: 200, message: "평가 수정 성공", data: data });
+
+    } catch (error) {
+        if (error instanceof Prisma.PrismaClientKnownRequestError)
+            if (error.code === "P2025")
+                return res.status(404).json({ status: 404, message: "수정할 평가가 존재하지 않습니다" });
+    }
+    return res.status(500).json({ status: 500, message: "평가 수정 실패" });
 }
 
 export default {
     getRateOfContent,
     postRate,
     deleteRate,
+    patchRate,
 };
