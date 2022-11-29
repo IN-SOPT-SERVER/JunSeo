@@ -10,14 +10,12 @@ datasource db {
 model Content {
   id    Int     @id @default(autoincrement())
   title String? @db.VarChar(20)
-  Rate  Rate[]
+  Rate  Rate?
 }
 
 model Rate {
   id        Int     @id @default(autoincrement())
-  bad       Int?    @default(0)
-  good      Int?    @default(0)
-  super     Int?    @default(0)
-  contentId Int
+  contentId Int     @unique
+  rate      String  @db.VarChar(20)
   Content   Content @relation(fields: [contentId], references: [id], onDelete: Cascade, map: "rate_content_id_fk")
 }
