@@ -1,0 +1,74 @@
+{
+  "1": {
+    "title": "수리남",
+    "summary": "남미에서.. ",
+    "rank": 5,
+    "total_episode": 6,
+    "date": "2022",
+    "creator": ["윤종빈", "권성"],
+    "starring": ["하정우", "황정민"],
+    "genre": ["범죄 시리즈", "한국 드라마"],
+    "age": ["18", "청소년 관람불가", "폭력성"],
+    "teaser": "https://occ-0-3077-993.1.nflxso.net/dnm/api/v6/E8vDc_W8CLv7-yMQu8KMEC7Rrr8/AAAABcWixjQYgz_9iiZ9rFCV5YGbFHtppD9AG8XGy5MJ8RLRHw7nwBEvf_HkwWX5cJiAds-zrxfQRPsJC7N7JL5TrATesWpJxtJFWO6D.webp?r=ff9",
+    "is_zzim": true,
+    "like": 0,
+    "last_watch_history": {
+      "episode_id": 3,
+      "episode_title": "3화",
+      "episode_summary": "새로운 사업을..",
+      "image": "https://insopt-kkl.s3.ap-northeast-2.amazonaws.com/KakaoTalk_20220920_220120930_02.jpg",
+      "running_time": 60,
+      "history": "00:33:42"
+    },
+    "episode": [
+      {
+        "episode_id": 1,
+        "episode_title": "1화",
+        "episode_summary": "새로운 사업을..",
+        "image": "https://insopt-kkl.s3.ap-northeast-2.amazonaws.com/KakaoTalk_20220920_220120930_02.jpg",
+        "running_time": 60,
+        "history": "00:33:42"
+      },
+      {
+        "episode_id": 2,
+        "episode_title": "2화",
+        "episode_summary": "변호사 선임을..",
+        "image": "~~~~",
+        "running_time": 60,
+        "history": "00:53:43"
+      },
+      {
+        "episode_id": 3,
+        "episode_title": "3화",
+        "episode_summary": "전요환과 구상만..",
+        "image": "https://insopt-kkl.s3.ap-northeast-2.amazonaws.com/KakaoTalk_20220920_220120930_02.jpg",
+        "running_time": 60,
+        "history": "00:33:42"
+      },
+      {
+        "episode_id": 4,
+        "episode_title": "4화",
+        "episode_summary": "국경에서 충돌이..",
+        "image": "~~~~",
+        "running_time": 60,
+        "history": null
+      },
+      {
+        "episode_id": 5,
+        "episode_title": "5화",
+        "episode_summary": "경로를 변경하도록..",
+        "image": "https://insopt-kkl.s3.ap-northeast-2.amazonaws.com/KakaoTalk_20220920_220120930_02.jpg",
+        "running_time": 60,
+        "history": null
+      },
+      {
+        "episode_id": 6,
+        "episode_title": "6화",
+        "episode_summary": "요한의 갑작스러운..",
+        "image": "https://insopt-kkl.s3.ap-northeast-2.amazonaws.com/KakaoTalk_20220920_220120930_02.jpg",
+        "running_time": 60,
+        "history": null
+      }
+    ]
+  }
+}
